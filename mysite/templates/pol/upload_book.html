@@ -1,0 +1,16 @@
+{% extends 'pol/index.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<h1>upload resume</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">upload your resume here </button>
+</form>
+
+
+<div>
+{% endblock %}

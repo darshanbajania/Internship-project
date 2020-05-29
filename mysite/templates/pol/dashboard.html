@@ -1,0 +1,24 @@
+{% extends 'pol/index.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+
+<h2 class="center">Welcome {{ user.username }} to dashboard</h2>
+<div class="row center">
+<a class="btn" href="{% url 'pol:upload_book' %}">For uploading pdf</a>
+<a class="btn" href="{% url 'pol:profile' %}">Your profile</a>
+<a href="{{ user.profile.pdf.url }}" class="btn">Your Resume</a>
+</div>
+
+   
+
+
+
+    
+
+</div>
+
+ 
+{% endblock %}

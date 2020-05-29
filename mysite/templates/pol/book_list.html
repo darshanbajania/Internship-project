@@ -1,0 +1,14 @@
+{% extends 'pol/index.html' %}
+
+{% block content %}
+<h1>books</h1>
+{% for book in books %}
+<P>
+    {{ book.title}}</P>
+ 
+<p>
+    {{ book.pdf}}
+</p>   
+
+{% endfor %}
+{% endblock %}

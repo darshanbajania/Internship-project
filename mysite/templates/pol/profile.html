@@ -1,0 +1,55 @@
+{% extends 'pol/index.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+ 
+
+      <!-- FORM HERE -->
+    
+    
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel  z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+                <img class="circle responsive-img account-img" style="width: 100px; height: 100px;" src="{{ user.profile.image.url }}">
+            </div>
+            <div class="col s10">
+              <span class="">
+                <h4>{{ user.username }}</h4>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div>
+  
+</div>
+      <div class="">
+        <div class="col s12 m6">
+          <div class="card ">
+            <div class="card-content ">
+              <span class="card-title center">Your Profile</span>
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}                
+               <ul>
+                 <l1>{{ u_form.as_p }}</l1>
+                 <li>{{ p_form.as_p }} </li>
+               </ul> 
+                              
+            <button class="btn cyan lighten-2" type="submit">Update</button>
+        
+    </form>  
+            </div>
+      
+          </div>
+        </div>
+      </div>
+    
+
+
+</div>
+
+{% endblock %}

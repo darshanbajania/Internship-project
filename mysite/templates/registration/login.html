@@ -1,0 +1,50 @@
+
+{% load static %}
+<html>
+    {% block content %}           
+    <html><link rel="stylesheet" type="text/css" href="{% static 'pol/style.css' %}">
+    <link rel="stylesheet" type="text/javascript" href="{% static 'pol/materialize.min.js' %}">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'pol/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<head>
+    <title>Internship Project</title>
+ 
+</head>
+
+<body>
+
+    
+    <div class="container column">
+        <div class="col s6 m6">
+        <div class="card horizontal">
+          <div class="card-image">
+        
+          </div>
+          <div class="card-stacked blue lighten-3 ">
+            <div class="card-content">
+                <span class="card-title center">Login</span>
+
+              <form method="POST">
+        {% csrf_token %} 
+        {{form.as_p}}
+        <button class="btn waves-effect  waves-light">login</button>
+    </form>
+            </div>
+            <div class="card-action">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+                
+    
+    
+    {% endblock %}
+</body>
+</html>

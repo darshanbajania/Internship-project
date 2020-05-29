@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+  <link rel="stylesheet" type="text/css" href="{% static 'pol/style.css' %}">
+  <link rel="stylesheet" type="text/javascript" href="{% static 'pol/materialize.min.js' %}">
+
+<head>
+    <div class="s6">
+    <ul id="slide-out" class="sidenav">
+          
+      <li><div class="user-view ">
+            
+        <div class="background">
+             
+          </div>
+          <div class="right">
+
+          </div>
+
+        </div>
+      </li>
+        {% if user.is_authenticated %}
+        <li><a class="btn waves-effect  waves-light " href="{% url 'pol:resource'  %}"><i class="material-icons right">send</i>Resources</a></li>
+        <li><a class="btn waves-effect  waves-light " href="{% url 'pol:logout_url'  %}"><i class="material-icons right">send</i>logout</a></li>
+        <li><a class="btn waves-effect  waves-light " href="{% url 'pol:dashboard'  %}"><i class="material-icons right">send</i>dashboard</a></li>
+  
+        {% else %}
+        <li><a class="btn waves-effect  waves-light " href="{% url 'pol:resource'  %}"><i class="material-icons right">send</i>Resources</a></li>
+        <li><a class="btn waves-effect  waves-light " href="{% url 'pol:mhome'  %}"><i class="material-icons right">send</i>login</a></li>
+            
+        {% endif %}    
+        <li><div class="divider"></div></li>
+    </ul>
+    
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+          
+      var instances = M.Sidenav.init(elems); 
+      console.log(instances)
+      });
+
+    </script>
+    <title>Internship Project</title>
+
+      <meta charset="UTF-8">
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="{% static 'pol/style.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </div>
+</head>
+  
+<body  id="backcolor">
+    <div class="container">            
+        <div class="center">                 
+          <h2> WELCOME </h2>                   
+          <h3>Let's Test our Awesome Model</h3>
+            
+        </div>
+        <div class="container row">
+          <form  method="POST">            
+          {% csrf_token %}            
+          <div class="input-field col s8">                 
+            <input  type="text" name="searches" >                
+            <label for="last_name">Put your text here</label>            
+          </div>
+          <button class="z-depth-3 btn waves-effect waves-light " type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+          </button>
+       </div>
+ 
+
+{% if k == 1 %}
+<div class="loader">
+  <div class="progress">
+  <div class="indeterminate"></div>
+</div>
+</div >  
+<p class="center">please enter any text</p>
+
+<script>
+ $(window).on("load",function(){
+   $(".loader").fadeout("slow")
+ })
+</script>
+{% else %}
+<div class="container">   
+  <div class="  column">
+    <div  class=" hoverable col s3 m6">
+      <div id="transp" class="opacity z-depth-4 card blue-grey darken-1">
+        <div class=" card-content white-text">
+          <span class="card-title">Text</span>
+          <p>
+            {% for key, value in categ_str.items %} 
+            <p class=""> {{value}}</p>
+            {% endfor %}
+          </p>
+        </div>
+        <div class="card-action">
+  
+        </div>
+      </div>
+    </div>
+  </div>
+            
+  <div class="column">
+    <div class="hoverable col s3 m6">
+      <div class="z-depth-4 card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Extracted Words</span>
+          <p>
+            <ul>
+                {% for i in k %}
+                    <li>{{ i }}</li>
+                {% endfor %}
+            </ul>
+          </p>
+        </div>
+        <div class="card-action">
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="hoverable col s3 m6">
+      <div class="z-depth-4 card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Category by TF IDF + KMEANS</span>
+          <p>
+            <ul>
+                
+                    <li>
+                        {% for key, value in cont.items %} 
+                        <p> {{value}}</p>
+                        {% endfor %}
+                        
+                    </li>
+                
+            </ul>
+          </p>
+        </div>
+        <div class="card-action">
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="hoverable col s3 m6">
+      <div class="z-depth-4 card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Category by KMEANS</span>
+          <p>
+            <ul>
+                
+                    <li>
+                        {% for key, value in kcont.items %} 
+                        <p> {{value}}</p>
+                        {% endfor %}
+                        
+                    </li>
+                
+            </ul>
+          </p>
+        </div>
+        <div class="card-action">
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>        
+    
+
+{% endif %}
+
+
+
+
+</div> 
+ 
+
+  <link   href="{% static 'pol/display.js' %}">
+
+    </body>
+
+</html>

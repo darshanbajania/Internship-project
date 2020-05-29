@@ -1,0 +1,63 @@
+<html>
+   
+{% load static %} 
+
+   
+
+    <html><link rel="stylesheet" type="text/css" href="{% static 'pol/style.css' %}">
+    <link rel="stylesheet" type="text/javascript" href="{% static 'pol/materialize.min.js' %}">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'pol/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <ul id="slide-out" class="sidenav">
+      <li>
+
+      <div class="user-view ">
+        <div class="background">
+        </div>
+        <div class="right">
+
+        </div>
+      </div>
+      </li>
+      
+      <li><a class="btn waves-effect  waves-light " href="{% url 'pol:home'  %}"><i class="material-icons right">send</i>Categorizer</a></li>
+      <li><div class="divider"></div></li>
+  
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          
+   <script>
+      document.addEventListener('DOMContentLoaded', function() {
+       var elems = document.querySelectorAll('.sidenav');
+      
+       var instances = M.Sidenav.init(elems); 
+       console.log(instances)
+     });
+   
+
+
+   </script>
+    <body>
+      <div class="container">
+      <ul class="collection with-header grow hoverable blue lighten-3 ">
+      <li class="center collection-header blue lighten-3"><h4>Resources</h4></li>
+          
+    </ul> 
+    <div class="collection ">
+        <a href="https://www.djangoproject.com/" class=" collection-item ">Django Official Project<i class="material-icons right">send</i></a>
+        <a href="https://materializecss.com/" class=" collection-item ">Materialize<i class="material-icons right">send</i></a>        
+        <a href="https://getbootstrap.com/" class=" collection-item ">Bootstrap<i class="material-icons right">send</i></a>
+        <a href="https://www.w3schools.com/w3css/" class=" collection-item ">W3Schools<i class="material-icons right">send</i></a>
+      
+    </div>
+</body>
+
+  
+ </div>
+ 
+    </html>
